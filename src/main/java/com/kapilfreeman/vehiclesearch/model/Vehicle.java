@@ -26,7 +26,7 @@ public class Vehicle {
     @JsonProperty("vehicleId")
     private long vehicleId;
     @JsonProperty("vehicleDetails")
-
+    @Embedded
     private VehicleDetails vehicleDetails;
 
 }

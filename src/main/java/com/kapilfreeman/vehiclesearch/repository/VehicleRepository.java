@@ -12,6 +12,6 @@ import org.springframework.stereotype.Service;
 
 
 @Repository
-public interface VehicleRepository extends JpaRepository<VehicleInformation, Long> {
+public interface VehicleRepository extends JpaRepository<VehicleInformation, Integer> {
 
 }

@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@Table(name = "Root")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "vehicles"
@@ -22,8 +23,8 @@ public class VehicleInformation {
     private int id;
 
     @JsonProperty("vehicles")
-    @OneToOne
-    private transient Vehicles vehicles;
+
+    private Vehicles vehicles;
 
 
 }

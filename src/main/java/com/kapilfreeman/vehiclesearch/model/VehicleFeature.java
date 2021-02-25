@@ -9,7 +9,11 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Embeddable
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
@@ -28,12 +32,12 @@ public class VehicleFeature {
     private List<String> Interior;
 
 
-    public VehicleFeature(List<String> exterior, List<String> interior) {
-        Exterior = exterior;
-        Interior = interior;
-    }
-
-    public VehicleFeature() {
-
-    }
+//    public VehicleFeature(List<String> exterior, List<String> interior) {
+//        Exterior = exterior;
+//        Interior = interior;
+//    }
+//
+//    public VehicleFeature() {
+//
+//    }
 }

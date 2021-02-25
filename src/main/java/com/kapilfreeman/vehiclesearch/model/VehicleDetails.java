@@ -47,6 +47,7 @@ public class VehicleDetails {
     @JsonProperty("MPG")
     private String MPG;
     @JsonProperty("vehicleFeature")
+    @Embedded
     private VehicleFeature vehicleFeature;
 
     @JsonProperty("vehiclePrice")
