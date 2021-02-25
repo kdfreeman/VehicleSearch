@@ -1,22 +1,29 @@
 package com.kapilfreeman.vehiclesearch.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.*;
+import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
 import java.util.List;
-@Entity
+
 @Data
+@Getter
+@Setter
+@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "vehicle"
+})
 public class Vehicles {
 
-    @Id
-    private int id;
+    @JsonProperty("vehicle")
     @ElementCollection
     private List<Vehicle> vehicle;
 
+    }
 
-
-}

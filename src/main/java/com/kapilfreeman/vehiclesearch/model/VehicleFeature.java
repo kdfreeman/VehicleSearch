@@ -1,20 +1,29 @@
 package com.kapilfreeman.vehiclesearch.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.*;
 
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Embeddable
-public class VehicleFeature {
+@JsonInclude(JsonInclude.Include.NON_NULL)
 
-    private List<String> Exterior;
-    private List<String> Interior;
+public class VehicleFeature {
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //private int id;
+    //@ElementCollection(targetClass=String.class)
+    private String Exterior;
+
+
+
+    //@ElementCollection(targetClass=String.class)
+    private String Interior;
 
 }

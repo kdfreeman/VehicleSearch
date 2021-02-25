@@ -1,17 +1,30 @@
 package com.kapilfreeman.vehiclesearch.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.*;
 
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "MSRP",
+        "Savings",
+        "finalPrice"
+})
 public class VehiclePrice {
+
+    @JsonProperty("MSRP")
     private String MSRP;
+    @JsonProperty("Savings")
     private String Savings;
+    @JsonProperty("finalPrice")
     private String finalPrice;
 }

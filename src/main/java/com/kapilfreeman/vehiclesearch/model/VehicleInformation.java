@@ -3,30 +3,26 @@ package com.kapilfreeman.vehiclesearch.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Data
-@Getter
-@Setter
-@NoArgsConstructor
+@Entity
 @AllArgsConstructor
-@Embeddable
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "vehicleId",
-        "vehicleDetails"
+        "vehicles"
 })
-public class Vehicle {
+public class VehicleInformation {
     @Id
-    @JsonProperty("vehicleId")
-    private long vehicleId;
-    @JsonProperty("vehicleDetails")
-    @Embedded
-    private VehicleDetails vehicleDetails;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
+    @JsonProperty("vehicles")
+    @Embedded
+    private Vehicles vehicles;
 }
