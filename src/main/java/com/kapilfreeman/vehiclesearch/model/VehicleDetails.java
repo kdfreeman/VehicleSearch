@@ -5,18 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Embeddable
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -32,6 +29,7 @@ import java.util.List;
         "vehiclePrice"
 })
 public class VehicleDetails {
+
     @JsonProperty("make")
     private String make;
     @JsonProperty("model")
@@ -50,7 +48,88 @@ public class VehicleDetails {
     private String MPG;
     @JsonProperty("vehicleFeature")
     private VehicleFeature vehicleFeature;
-    @ElementCollection
+
     @JsonProperty("vehiclePrice")
+    @ElementCollection
     private List<VehiclePrice> vehiclePrice;
+
+//    public String getMake() {
+//        return make;
+//    }
+//
+//    public String getModel() {
+//        return model;
+//    }
+//
+//    public String getModelYear() {
+//        return modelYear;
+//    }
+//
+//    public String getBodyStyle() {
+//        return bodyStyle;
+//    }
+//
+//    public String getEngine() {
+//        return engine;
+//    }
+//
+//    public String getDrivetype() {
+//        return drivetype;
+//    }
+//
+//    public void setMake(String make) {
+//        this.make = make;
+//    }
+//
+//    public void setModel(String model) {
+//        this.model = model;
+//    }
+//
+//    public void setModelYear(String modelYear) {
+//        this.modelYear = modelYear;
+//    }
+//
+//    public void setBodyStyle(String bodyStyle) {
+//        this.bodyStyle = bodyStyle;
+//    }
+//
+//    public void setEngine(String engine) {
+//        this.engine = engine;
+//    }
+//
+//    public void setDrivetype(String drivetype) {
+//        this.drivetype = drivetype;
+//    }
+//
+//    public void setColor(String color) {
+//        this.color = color;
+//    }
+//
+//    public void setMPG(String MPG) {
+//        this.MPG = MPG;
+//    }
+//
+//    public void setVehicleFeature(VehicleFeature vehicleFeature) {
+//        this.vehicleFeature = vehicleFeature;
+//    }
+//
+//    public void setVehiclePrice(List<VehiclePrice> vehiclePrice) {
+//        this.vehiclePrice = vehiclePrice;
+//    }
+//
+//    public String getColor() {
+//        return color;
+//    }
+//
+//    public String getMPG() {
+//        return MPG;
+//    }
+//
+//    public VehicleFeature getVehicleFeature() {
+//        return vehicleFeature;
+//    }
+//
+//    public List<VehiclePrice> getVehiclePrice() {
+//        return vehiclePrice;
+//    }
 }

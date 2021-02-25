@@ -10,20 +10,24 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Embeddable
-@NoArgsConstructor
-@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "vehicle"
 })
 public class Vehicles {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private int id;
 
     @JsonProperty("vehicle")
-    @ElementCollection
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<Vehicle> vehicle;
 
-    }
+
+}
 

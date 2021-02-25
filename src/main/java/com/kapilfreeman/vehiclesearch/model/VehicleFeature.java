@@ -9,8 +9,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
+
 @Embeddable
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
@@ -18,12 +17,23 @@ public class VehicleFeature {
     //@Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     //private int id;
-    //@ElementCollection(targetClass=String.class)
-    private String Exterior;
+    @ElementCollection
+    @JsonProperty("Exterior")
+    private List<String> Exterior;
 
 
 
-    //@ElementCollection(targetClass=String.class)
-    private String Interior;
+    @ElementCollection
+    @JsonProperty("Interior")
+    private List<String> Interior;
 
+
+    public VehicleFeature(List<String> exterior, List<String> interior) {
+        Exterior = exterior;
+        Interior = interior;
+    }
+
+    public VehicleFeature() {
+
+    }
 }

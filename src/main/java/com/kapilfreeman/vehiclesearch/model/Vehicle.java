@@ -11,11 +11,11 @@ import java.util.List;
 
 
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Embeddable
+@Getter
+@Setter
+@Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "vehicleId",
@@ -26,7 +26,7 @@ public class Vehicle {
     @JsonProperty("vehicleId")
     private long vehicleId;
     @JsonProperty("vehicleDetails")
-    @Embedded
+
     private VehicleDetails vehicleDetails;
 
 }
