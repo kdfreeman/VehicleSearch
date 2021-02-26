@@ -14,15 +14,15 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Embeddable
+@Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "vehicle"
 })
 public class Vehicles {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @JsonProperty("vehicle")
     @OneToMany(cascade = {CascadeType.ALL})

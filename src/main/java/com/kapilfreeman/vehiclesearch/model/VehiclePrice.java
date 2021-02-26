@@ -20,6 +20,9 @@ import javax.persistence.*;
         "finalPrice"
 })
 public class VehiclePrice {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private long id;
 
     @JsonProperty("MSRP")
     private String MSRP;

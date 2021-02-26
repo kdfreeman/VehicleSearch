@@ -20,10 +20,10 @@ import javax.persistence.*;
 public class VehicleInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @JsonProperty("vehicles")
-
+    @OneToOne(cascade = {CascadeType.ALL})
     private Vehicles vehicles;
 
 
