@@ -1,8 +1,6 @@
 package com.kapilfreeman.vehiclesearch.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Embeddable
+@Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "MSRP",
@@ -20,16 +18,34 @@ import javax.persistence.*;
         "finalPrice"
 })
 public class VehiclePrice {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private long id;
+    @JsonIgnore
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @JsonProperty("MSRP")
-    private String MSRP;
+    private double MSRP;
     @JsonProperty("Savings")
-    private String Savings;
+    private double Savings;
+
+    public VehiclePrice(double MSRP, double savings, double finalPrice) {
+        this.MSRP = MSRP;
+        Savings = savings;
+        this.finalPrice = finalPrice;
+    }
+
     @JsonProperty("finalPrice")
-    private String finalPrice;
+    private double finalPrice;
+
+   // public VehiclePrice(double msrp, double savings, double finalPrice) {
+   // }
+
+//    public VehiclePrice(double msrp, double savings, double finalPrice) {
+//    }
+
+
+    // public VehiclePrice(double msrp, double savings, double finalPrice) {
+   // }
 
 
 //    public VehiclePrice() {

@@ -1,5 +1,6 @@
 package com.kapilfreeman.vehiclesearch.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,11 +23,12 @@ import java.util.List;
         "vehicleDetails"
 })
 public class Vehicle {
+
     @Id
     @JsonProperty("vehicleId")
     private long vehicleId;
     @JsonProperty("vehicleDetails")
-    @Embedded
+    @OneToOne(cascade = {CascadeType.ALL})
     private VehicleDetails vehicleDetails;
 
 }

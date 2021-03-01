@@ -40,8 +40,12 @@ public class VehicleService {
 
     }
 
+    public List<Vehicle> findVehicleByPriceRange(double from, double to) {
+        return vehicleRepository.findByVehicleDetails_vehiclePrice_finalPrice_Between(from,to);
+    }
+
 //    public List<Vehicle> findVehicleByPrice(String from, String to) {
-//        return vehicleRepository.findByVehicleDetails_vehiclePrice_finalPrice(to);
+//
 //    }
 }
 

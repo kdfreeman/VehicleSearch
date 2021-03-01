@@ -1,5 +1,6 @@
 package com.kapilfreeman.vehiclesearch.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -14,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Embeddable
+@Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "make",
@@ -29,7 +30,10 @@ import java.util.List;
         "vehiclePrice"
 })
 public class VehicleDetails {
-
+    @JsonIgnore
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     @JsonProperty("make")
     private String make;
     @JsonProperty("model")
@@ -51,7 +55,7 @@ public class VehicleDetails {
     private VehicleFeature vehicleFeature;
 
     @JsonProperty("vehiclePrice")
-    @ElementCollection
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<VehiclePrice> vehiclePrice;
 
 //    public String getMake() {

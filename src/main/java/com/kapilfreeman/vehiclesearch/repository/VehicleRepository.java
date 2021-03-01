@@ -10,5 +10,7 @@ public interface VehicleRepository extends JpaRepository<Vehicle,Long> {
 
     List<Vehicle> findByVehicleDetails_model(String model);
 
-   // List<Vehicle> findByVehicleDetails_vehiclePrice_finalPrice(String price);
+    List<Vehicle> findByVehicleDetails_vehiclePrice_finalPrice_Between(double from, double to);
+
+    // List<Vehicle> findByVehicleDetails_vehiclePrice_finalPrice(String price);
 }

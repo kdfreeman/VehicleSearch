@@ -20,6 +20,7 @@ public class VehicleController {
 
     @RequestMapping(value = "/POST/vehicleInformation/submitVehicle",method = RequestMethod.POST)
     public VehicleInformation saveVehicles(@RequestBody VehicleInformation vehicle){
+
         return vehicleService.saveVehicles(vehicle);
     }
 
@@ -37,10 +38,12 @@ public class VehicleController {
         return vehicleService.findVehicleByModelName(model);
     }
 
-//    @RequestMapping(value = "GET/getVehiclePrice/{From}/{To}",method = RequestMethod.GET)
-//    public List<Vehicle> findByPrice( @PathVariable String From, @PathVariable String To){
-//        return vehicleService.findVehicleByPrice(From,To);
-//    }
+    @RequestMapping(value = "GET/getVehiclePrice/{From}/{To}",method = RequestMethod.GET)
+    public List<Vehicle> findByPrice( @PathVariable String From, @PathVariable String To){
+        double start=Double.parseDouble(From.replaceAll("[^\\d.]", ""));
+        double end=Double.parseDouble(To.replaceAll("[^\\d.]", ""));
+        return vehicleService.findVehicleByPriceRange(start,end);
+    }
 
 
 }
