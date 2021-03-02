@@ -12,7 +12,6 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -23,27 +22,32 @@ public class VehicleFeature {
     @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ElementCollection
+    //@ElementCollection
     @JsonProperty("Exterior")
-    @Column(name="Exterior")
-    private List<String> exterior;
-
+    private String exterior;
+//
 //    //used to convert list to string of characters
 //    @JsonIgnore
-//    @Column(name="Exterior")
-//    private String exteriorlist;
+//    @Column(name="Exterior",insertable = false, updatable = false)
+//    private String exteriorFeatureString;
 
 
 
-    @ElementCollection
-    @Column(name="Interior")
+    //@ElementCollection
+   // @Column(name="Interior")
     @JsonProperty("Interior")
-    private List<String> interior;
+    private String interior;
+
+    public VehicleFeature(String exterior, String interior) {
+        this.exterior=exterior;
+        this.interior=interior;
+    }
+
 
 //    //used to convert list to string of characters
 //    @JsonIgnore
-//    @Column(name="Interior")
-//    private String interiorlist;
+//    @Column(name="Interior",insertable = false, updatable = false)
+//    private String interiorFeatureString;
 
 
 //    public VehicleFeature(List<String> exterior, List<String> interior) {

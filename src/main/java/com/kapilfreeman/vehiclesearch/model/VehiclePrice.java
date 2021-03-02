@@ -28,14 +28,16 @@ public class VehiclePrice {
     @JsonProperty("Savings")
     private double Savings;
 
+    @JsonProperty("finalPrice")
+    private double finalPrice;
+
     public VehiclePrice(double MSRP, double savings, double finalPrice) {
         this.MSRP = MSRP;
         Savings = savings;
         this.finalPrice = finalPrice;
     }
 
-    @JsonProperty("finalPrice")
-    private double finalPrice;
+
 
    // public VehiclePrice(double msrp, double savings, double finalPrice) {
    // }

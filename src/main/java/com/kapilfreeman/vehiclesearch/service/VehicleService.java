@@ -8,7 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Data
@@ -47,8 +50,14 @@ public class VehicleService {
     public List<Vehicle> findVehicleByFeatures(String exterior, String interior) {
         List<Vehicle> Exterior=vehicleRepository.findByVehicleDetails_vehicleFeature_exterior_Containing(exterior);
         List<Vehicle> Interior=vehicleRepository.findByVehicleDetails_vehicleFeature_interior_Containing(interior);
-        //Exterior.retainAll(Interior);
-        return Exterior;
+        //Code to return union of Exterior and Interior
+        Set<Vehicle> set = new HashSet<Vehicle>();
+
+        set.addAll(Exterior);
+        set.addAll(Interior);
+
+        return new ArrayList<Vehicle>(set);
+        //return Exterior;
 
 
 
