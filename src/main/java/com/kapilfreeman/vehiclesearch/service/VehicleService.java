@@ -18,7 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class VehicleService {
     //@Autowired
-    //rivate VehicleRepository vehicleRepository;
+    //private VehicleRepository vehicleRepository;
 
     //@Autowired
     private VehicleInformationRepository vehicleInformationRepository;

@@ -1,5 +1,7 @@
 package com.kapilfreeman.vehiclesearch.controller;
 
+import com.amazonaws.services.route53.model.InvalidInputException;
+import com.amazonaws.util.json.JSONObject;
 import com.kapilfreeman.vehiclesearch.model.Vehicle;
 import com.kapilfreeman.vehiclesearch.model.VehicleInformation;
 import com.kapilfreeman.vehiclesearch.service.VehicleService;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.List;
 
@@ -21,9 +24,11 @@ public class VehicleController {
 
 
     @RequestMapping(value = "/POST/vehicleInformation/submitVehicle",method = RequestMethod.POST)
-    public VehicleInformation saveVehicles(@RequestBody VehicleInformation vehicle){
+    public ResponseEntity<Object> saveVehicles(@RequestBody VehicleInformation vehicle){
 
-        return vehicleService.saveVehicles(vehicle);
+         vehicleService.saveVehicles(vehicle);
+         return ResponseEntity.status(HttpStatus.OK)
+                .body("Vehicles Information Sumbitted Successfully " );
     }
 
     @RequestMapping(value = "GET/getVehicleInformation",method = RequestMethod.GET)
@@ -48,7 +53,7 @@ public class VehicleController {
     }
     @RequestMapping(value = "GET/getVehicleByFeatures/{exterior}/{interior}",method = RequestMethod.GET)
     public List<Vehicle> findByFeatures( @PathVariable String exterior, @PathVariable String interior){
-        if (interior.length()<4 || exterior.length()<4) throw new IllegalArgumentException();
+        if (interior.length()<4 || exterior.length()<4) throw new InvalidInputException("Length of exterior and interior should be greater than 3");
         return vehicleService.findVehicleByFeatures(exterior,interior);
     }
 

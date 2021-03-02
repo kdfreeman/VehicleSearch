@@ -32,24 +32,17 @@ public class VehicleFeatureSerializerAndDeserializer {
 
         @Override
         public void serialize(VehicleFeature vehicleFeature, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-//            List<Integer> intList = new ArrayList<Integer>();
-//            intList.add(101);
-//            intList.add(201);
-//            intList.add(301);
+//
             jsonGenerator.writeStartObject();
 
             //for exterior
-
             jsonGenerator.writeFieldName("Exterior");
             jsonGenerator.writeObject(getFeatureAsList(vehicleFeature.getExterior()));
 
 
             //for interior
-
             jsonGenerator.writeFieldName("Interior");
             jsonGenerator.writeObject(getFeatureAsList(vehicleFeature.getInterior()));
-
-
 
 
             jsonGenerator.writeEndObject();
