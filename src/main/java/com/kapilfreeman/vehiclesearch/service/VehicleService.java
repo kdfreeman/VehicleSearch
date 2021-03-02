@@ -44,8 +44,16 @@ public class VehicleService {
         return vehicleRepository.findByVehicleDetails_vehiclePrice_finalPrice_Between(from,to);
     }
 
-//    public List<Vehicle> findVehicleByPrice(String from, String to) {
-//
-//    }
+    public List<Vehicle> findVehicleByFeatures(String exterior, String interior) {
+        List<Vehicle> Exterior=vehicleRepository.findByVehicleDetails_vehicleFeature_exterior_Containing(exterior);
+        List<Vehicle> Interior=vehicleRepository.findByVehicleDetails_vehicleFeature_interior_Containing(interior);
+        //Exterior.retainAll(Interior);
+        return Exterior;
+
+
+
+    }
+
+
 }
 

@@ -5,6 +5,8 @@ import com.kapilfreeman.vehiclesearch.model.VehicleInformation;
 import com.kapilfreeman.vehiclesearch.service.VehicleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,6 +46,13 @@ public class VehicleController {
         double end=Double.parseDouble(To.replaceAll("[^\\d.]", ""));
         return vehicleService.findVehicleByPriceRange(start,end);
     }
+    @RequestMapping(value = "GET/getVehicleByFeatures/{exterior}/{interior}",method = RequestMethod.GET)
+    public List<Vehicle> findByFeatures( @PathVariable String exterior, @PathVariable String interior){
+        if (interior.length()<4 || exterior.length()<4) throw new IllegalArgumentException();
+        return vehicleService.findVehicleByFeatures(exterior,interior);
+    }
+
+
 
 
 }

@@ -51,7 +51,7 @@ public class VehicleDetails {
     @JsonProperty("MPG")
     private String MPG;
     @JsonProperty("vehicleFeature")
-    @Embedded
+    @OneToOne(cascade = {CascadeType.ALL})
     private VehicleFeature vehicleFeature;
 
     @JsonProperty("vehiclePrice")
