@@ -20,14 +20,14 @@ public class VehiclePriceSerializerAndDeserializer {
             jsonGenerator.writeStartObject();
 
             jsonGenerator.writeStringField(
-                    "MSRP", getPriceAsNumber(vehiclePrice.getMSRP()));
+                    "MSRP", getPriceAsString(vehiclePrice.getMSRP()));
             jsonGenerator.writeStringField(
-                    "Savings", getPriceAsNumber(vehiclePrice.getSavings()));
+                    "Savings", getPriceAsString(vehiclePrice.getSavings()));
             jsonGenerator.writeStringField(
-                    "finalPrice", getPriceAsNumber(vehiclePrice.getFinalPrice()));
+                    "finalPrice", getPriceAsString(vehiclePrice.getFinalPrice()));
             jsonGenerator.writeEndObject();
         }
-        private static String getPriceAsNumber(double price){
+        private static String getPriceAsString(double price){
             DecimalFormat formatter = new DecimalFormat("#,###.00");
             String p=formatter.format(price);
             StringBuilder s=new StringBuilder(p);

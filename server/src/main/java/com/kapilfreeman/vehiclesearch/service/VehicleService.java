@@ -30,8 +30,8 @@ public class VehicleService {
         return vehicleInformationRepository.save(vehicle);
     }
 
-    public List<VehicleInformation> showAllVehicle() {
-        return  vehicleInformationRepository.findAll();
+    public List<Vehicle> showAllVehicle() {
+        return  vehicleRepository.findAll();
     }
 
 //    public List<VehicleInformation> findVehicleByModel(String model) {

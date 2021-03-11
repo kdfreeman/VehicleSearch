@@ -32,7 +32,7 @@ public class VehicleController {
     }
 
     @RequestMapping(value = "GET/getVehicleInformation",method = RequestMethod.GET)
-    public List<VehicleInformation> getVehicleInformation( ){
+    public List<Vehicle> getVehicleInformation( ){
         return vehicleService.showAllVehicle();
     }
 
