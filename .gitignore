@@ -13,7 +13,19 @@ target/
 .springBeans
 .sts4-cache
 
+# compiled output
+/dist
+/tmp
+/out-tsc
+
 ### IntelliJ IDEA ###
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 .idea
 *.iws
 *.iml
