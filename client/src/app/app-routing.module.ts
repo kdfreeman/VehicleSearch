@@ -8,10 +8,11 @@ import {ModelsearchComponent} from './modelsearch/modelsearch.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'featuresearch', component: FeaturesearchComponent},
   {path: 'modelsearch', component: ModelsearchComponent},
   {path: 'home', component: HomepageComponent},
   {path: 'showall', component: ShowallComponent},
-  {path: 'searchbyPrice', component: PricesearchComponent},
+  {path: 'pricesearch', component: PricesearchComponent},
   {path: 'searchbyfeature', component: FeaturesearchComponent}
 ];
 

@@ -1,15 +1,45 @@
 <!--login modal-->
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-<body>
+<section class="search-sec">
+  <div class="container">
+<!--    <form action="#" method="post" novalidate="novalidate">-->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+              <input type="text" class="form-control search-slt" placeholder="Enter Minimum Price"  name="minPrice" [(ngModel)]="minPrice">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+              <input type="text" class="form-control search-slt" placeholder="Enter Maximum Price"  name="maxPrice" [(ngModel)]="maxPrice">
+            </div>
+<!--            <div class="col-lg-3 col-md-3 col-sm-12 p-0">-->
+<!--              <select class="form-control search-slt" id="exampleFormControlSelect1">-->
+<!--                <option>Select Vehicle</option>-->
+<!--                <option>Example one</option>-->
+<!--                <option>Example one</option>-->
+<!--                <option>Example one</option>-->
+<!--                <option>Example one</option>-->
+<!--                <option>Example one</option>-->
+<!--                <option>Example one</option>-->
+<!--              </select>-->
+<!--            </div>-->
+            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+              <button type="button" class="btn btn-danger wrn-btn"  (click)="getVehicleByPrice()">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--    </form>-->
+  </div>
+</section>
+
+
+<!--for table-->
+
+<!--for table-->
 <table class="table table-striped">
   <thead>
   <tr>
-<!--    <th scope="col">#</th>-->
+    <!--    <th scope="col">#</th>-->
     <th scope="col">Id</th>
     <th scope="col">Model</th>
     <th scope="col">Engine</th>
@@ -34,18 +64,18 @@
 
     <td>
 
-        <div class="card">
-          <div class="card-body">
-            <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehicleFeature.Exterior}} triggers="mouseenter:mouseleave" popoverTitle="Exterior Features">
-              Exterior Features
-            </button>
-            <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehicleFeature.Interior}} triggers="mouseenter:mouseleave" popoverTitle="Interior Features">
-              Interior Features
-            </button>
+      <div class="card">
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehicleFeature.Exterior}} triggers="mouseenter:mouseleave" popoverTitle="Exterior Features">
+            Exterior Features
+          </button>
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehicleFeature.Interior}} triggers="mouseenter:mouseleave" popoverTitle="Interior Features">
+            Interior Features
+          </button>
 
-<!--            <li>Exterior: {{ vehicle.vehicleDetails.vehicleFeature.Exterior}}</li>-->
-<!--            <li>Interior: {{ vehicle.vehicleDetails.vehicleFeature.Interior}}</li>-->
-          </div>
+          <!--            <li>Exterior: {{ vehicle.vehicleDetails.vehicleFeature.Exterior}}</li>-->
+          <!--            <li>Interior: {{ vehicle.vehicleDetails.vehicleFeature.Interior}}</li>-->
+        </div>
 
       </div>
 
@@ -53,26 +83,26 @@
 
 
 
-      </td>
-<!--    <td>{{ vehicle.vehicleDetails.vehiclePrice }}</td>-->
+    </td>
+    <!--    <td>{{ vehicle.vehicleDetails.vehiclePrice }}</td>-->
     <td>
 
-        <div class="card">
-          <div class="card-body">
-            <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].MSRP}} triggers="mouseenter:mouseleave" popoverTitle="MSRP">
-              MSRP
-            </button>
-            <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].Savings}} triggers="mouseenter:mouseleave" popoverTitle="Savings">
-              Savings
-            </button>
-            <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].finalPrice}} triggers="mouseenter:mouseleave" popoverTitle="Final Price">
-              Final Price
-            </button>
+      <div class="card">
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].MSRP}} triggers="mouseenter:mouseleave" popoverTitle="MSRP">
+            MSRP
+          </button>
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].Savings}} triggers="mouseenter:mouseleave" popoverTitle="Savings">
+            Savings
+          </button>
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].finalPrice}} triggers="mouseenter:mouseleave" popoverTitle="Final Price">
+            Final Price
+          </button>
 
-<!--            <li>MSRP: {{ vehicle.vehicleDetails.vehiclePrice[0].MSRP}}</li>-->
-<!--            <li>Savings: {{ vehicle.vehicleDetails.vehiclePrice[0].Savings}}</li>-->
-<!--            <li>Final Price: {{ vehicle.vehicleDetails.vehiclePrice[0].finalPrice}}</li>-->
-          </div>
+          <!--            <li>MSRP: {{ vehicle.vehicleDetails.vehiclePrice[0].MSRP}}</li>-->
+          <!--            <li>Savings: {{ vehicle.vehicleDetails.vehiclePrice[0].Savings}}</li>-->
+          <!--            <li>Final Price: {{ vehicle.vehicleDetails.vehiclePrice[0].finalPrice}}</li>-->
+        </div>
 
       </div>
 
@@ -80,7 +110,7 @@
 
 
 
-      </td>
+    </td>
     <td>{{ vehicle.vehicleDetails.drivetype}}</td>
     <td>{{ vehicle.vehicleDetails.color }}</td>
     <td>{{ vehicle.vehicleDetails.bodyStyle }}</td>
@@ -94,5 +124,4 @@
   </tr>
   </tbody>
 </table>
-</body>
 

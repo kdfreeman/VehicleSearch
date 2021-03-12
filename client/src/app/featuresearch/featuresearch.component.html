@@ -1,1 +1,127 @@
-<p>featuresearch works!</p>
+<!--login modal-->
+<section class="search-sec">
+  <div class="container">
+    <!--    <form action="#" method="post" novalidate="novalidate">-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+            <input type="text" class="form-control search-slt" placeholder="Enter Interior Feature"  name="interior" [(ngModel)]="interior">
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+            <input type="text" class="form-control search-slt" placeholder="Enter Exterior Feature"  name="exterior" [(ngModel)]="exterior">
+          </div>
+          <!--            <div class="col-lg-3 col-md-3 col-sm-12 p-0">-->
+          <!--              <select class="form-control search-slt" id="exampleFormControlSelect1">-->
+          <!--                <option>Select Vehicle</option>-->
+          <!--                <option>Example one</option>-->
+          <!--                <option>Example one</option>-->
+          <!--                <option>Example one</option>-->
+          <!--                <option>Example one</option>-->
+          <!--                <option>Example one</option>-->
+          <!--                <option>Example one</option>-->
+          <!--              </select>-->
+          <!--            </div>-->
+          <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+            <button type="button" class="btn btn-danger wrn-btn"  (click)="getVehicleByFeature()">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    </form>-->
+  </div>
+</section>
+
+
+<!--for table-->
+
+<!--for table-->
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <!--    <th scope="col">#</th>-->
+    <th scope="col">Id</th>
+    <th scope="col">Model</th>
+    <th scope="col">Engine</th>
+    <th scope="col">Vehicle Feature</th>
+    <th scope="col">Vehicle price</th>
+    <th scope="col">Drive Type</th>
+    <th scope="col">Color</th>
+    <th scope="col">Body Style</th>
+    <th scope="col">Make</th>
+    <th scope="col">Model Year</th>
+    <th scope="col">Engine</th>
+    <th scope="col">MPG</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let vehicle of vehicles">
+
+    <td>{{ vehicle.vehicleId}}</td>
+    <td>{{ vehicle.vehicleDetails.model }}</td>
+    <td>{{ vehicle.vehicleDetails.engine }}</td>
+
+    <td>
+
+      <div class="card">
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehicleFeature.Exterior}} triggers="mouseenter:mouseleave" popoverTitle="Exterior Features">
+            Exterior Features
+          </button>
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehicleFeature.Interior}} triggers="mouseenter:mouseleave" popoverTitle="Interior Features">
+            Interior Features
+          </button>
+
+          <!--            <li>Exterior: {{ vehicle.vehicleDetails.vehicleFeature.Exterior}}</li>-->
+          <!--            <li>Interior: {{ vehicle.vehicleDetails.vehicleFeature.Interior}}</li>-->
+        </div>
+
+      </div>
+
+
+
+
+
+    </td>
+    <!--    <td>{{ vehicle.vehicleDetails.vehiclePrice }}</td>-->
+    <td>
+
+      <div class="card">
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].MSRP}} triggers="mouseenter:mouseleave" popoverTitle="MSRP">
+            MSRP
+          </button>
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].Savings}} triggers="mouseenter:mouseleave" popoverTitle="Savings">
+            Savings
+          </button>
+          <button type="button" class="btn btn-outline-secondary" ngbPopover={{vehicle.vehicleDetails.vehiclePrice[0].finalPrice}} triggers="mouseenter:mouseleave" popoverTitle="Final Price">
+            Final Price
+          </button>
+
+          <!--            <li>MSRP: {{ vehicle.vehicleDetails.vehiclePrice[0].MSRP}}</li>-->
+          <!--            <li>Savings: {{ vehicle.vehicleDetails.vehiclePrice[0].Savings}}</li>-->
+          <!--            <li>Final Price: {{ vehicle.vehicleDetails.vehiclePrice[0].finalPrice}}</li>-->
+        </div>
+
+      </div>
+
+
+
+
+
+    </td>
+    <td>{{ vehicle.vehicleDetails.drivetype}}</td>
+    <td>{{ vehicle.vehicleDetails.color }}</td>
+    <td>{{ vehicle.vehicleDetails.bodyStyle }}</td>
+    <td>{{ vehicle.vehicleDetails.make}}</td>
+    <td>{{ vehicle.vehicleDetails.modelYear }}</td>
+    <td>{{ vehicle.vehicleDetails.engine}}</td>
+    <td>{{ vehicle.vehicleDetails.MPG}}</td>
+
+
+
+  </tr>
+  </tbody>
+</table>
+

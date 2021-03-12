@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Vehicle} from '../vehicle';
+import {VehicleserviceService} from '../vehicleservice.service';
 
 @Component({
   selector: 'app-modelsearch',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModelsearchComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  public vehicles: Vehicle[];
+  public isCollapsePrice: false;
+  public isCollapseFeature: false;
+  model: string;
+  constructor(private vehicleService: VehicleserviceService) {}
+  // tslint:disable-next-line:typedef
+  ngOnInit() {
+    this.getVehicleByModel();
+  }
+
+  // tslint:disable-next-line:typedef
+  public getVehicleByModel(): void{
+    this.vehicleService.getVehicleByModelName(this.model).subscribe(
+      data => {
+        this.vehicles = data;
+      });
+
+
+
   }
 
 }
