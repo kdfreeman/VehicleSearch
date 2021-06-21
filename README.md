@@ -18,10 +18,10 @@ The project is a simple vehicle search application created in Java[Spring Boot] 
  
  ### Server
 
-1. Server is made using Spring Boot.
-2. Have features to save vehicles, filtering vehicles according to price range, searching vehicles according to model name .
-3. Once the api is requested, it returns the vehicle according to the request from the client.
-4. After running the server, use postman or any other tool to post the **vehicle.json** to the database.
-5. Modify the database properties according to your database name and set username and password in properties file and you are good to go.
+- Server is made using Spring Boot.
+- Have features to save vehicles, filtering vehicles according to price range, searching vehicles according to model name .
+- Once the api is requested, it returns the vehicle according to the request from the client.
+- After running the server, use postman or any other tool to post the **vehicle.json** to the database.
+- Modify the database properties according to your database name and set username and password in properties file and you are good to go.
 
 ---
