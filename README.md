@@ -3,7 +3,7 @@
 
 
 ## Project Description
-The project is a simple vehicle search application created in Java[Spring Boot] at the back end and Angular in the front end. The **Client** denotes the **Angular** project which will connect to **Server** to get the requested information. The **Server** is the backend built in **Spring Boot**. After we run the server, the data is posted in the database from the Vehicle.json file using postman. The vehicle.json contains the details of a set of vehicles. H2 in memory database is used for this project. The tables are made accordingly the structure of the json file.
+The project is a simple vehicle search application created in Java[Spring Boot] at the back end and Angular in the front end. The **Client** denotes the **Angular** project which will connect to **Server** to get the requested information. The **Server** is the backend built in **Spring Boot**. After we run the server, the data is inserted in the database from the Vehicle.json file.( I used postman for this purpose). The vehicle.json contains the details of a set of vehicles. H2 in memory database is used for this project. The tables are made accordingly the structure of the json file.
 
 ### Client
 
