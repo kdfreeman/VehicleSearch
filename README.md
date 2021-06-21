@@ -9,11 +9,11 @@ The project is a simple vehicle search application created in Java[Spring Boot] 
 
 - It's an angular project which is the UI interface for the project.
 - It has the following features:
-    -Viewing all vehicles stored in Server.
-    -Search Vehicles according to the model name.
-    -Filter vehicle according to the price range.
-    -Search vehicle according to internal as well as external features.
- -Use ` ng serve ` to run the client after running the server.
+- Viewing all vehicles stored in Server.
+- Search Vehicles according to the model name.
+- Filter vehicle according to the price range.
+- Search vehicle according to internal as well as external features.
+- Use ` ng serve ` to run the client after running the server.
  
  
  ### Server
